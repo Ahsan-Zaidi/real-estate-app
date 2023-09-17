@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { db } from '../firebase.config';
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg';
 import visibilityIcon from '../assets/svg/visibilityIcon.svg';
@@ -40,11 +41,20 @@ const SignUp = () => {
                 email,
                 password
             )
+
             const user = userCredential.user
 
             updateProfile(auth.currentUser, {
-                displayName: name
+                displayName: name,
             })
+
+            //copy the formData state as to not change it
+            const formDataCopy = {...formData}
+            delete formDataCopy.password
+            formDataCopy.timestamp = serverTimestamp()
+
+            //update the doc to add new user into the user collection in db
+            await setDoc(doc(db, 'users', user.uid), formDataCopy)
 
             //redirect to home
             navigate('/')
