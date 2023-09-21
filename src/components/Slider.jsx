@@ -45,6 +45,11 @@ const Slider = () => {
         return <Spinner />
     }
 
+    //IF there are no listing dontshow the container for slider
+    if (listings.length === 0) {
+        return <></>
+    }
+
     return listings && (
         <>
             <p className="exploreHeading">Recommended</p>
