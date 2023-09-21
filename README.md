@@ -20,7 +20,7 @@
 
 ✋ [GitHub Repository] https://github.com/Ahsan-Zaidi/real-estate-app
 
-✋ [Deployed App] 
+✋ [Deployed App] https://real-estate-app-theta-red.vercel.app/
 
 ## ✋User Story
 
