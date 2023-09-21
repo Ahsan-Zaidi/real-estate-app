@@ -44,7 +44,7 @@ const ListingItem = ({ listing, id, onDelete }) => {
 
                         <img src={bathtubIcon} alt='bath' />
                         <p className='categoryListingInfoText'>
-                            {listing.bathroom > 1 ? `${listing.bathrooms} Bathrooms` : '1 Bathroom'}
+                            {listing.bathrooms > 1 ? `${listing.bathrooms} Bathrooms` : '1 Bathroom'}
                         </p>
                     </div>
                 </div>
