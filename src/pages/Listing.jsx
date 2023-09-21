@@ -104,7 +104,7 @@ const Listing = () => {
                 {/**Only show the contact button if its not the users listing */}
                 {auth.currentUser?.uid !== listing.userRef && (
                     <Link
-                        to={`/contact/${listing.userRef}?listingName=${listing.name}&listingLocation=${listing.location}`}
+                        to={`/contact/${listing.userRef}?listingName=${listing.name}`}
                         className="primaryButton"
                     >
                         Contact Landlord
